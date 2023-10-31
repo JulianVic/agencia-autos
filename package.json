@@ -1,0 +1,19 @@
+{
+  "name": "agencia-autos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type" : "module",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "create-server": "node script.js",
+    "create-routes": "node scriptModelos.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  }
+}
