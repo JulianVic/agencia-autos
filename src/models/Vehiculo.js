@@ -21,4 +21,4 @@ const vehiculoSchema = new Schema({
 
 const Vehiculo = mongoose.model('Vehiculo', vehiculoSchema, 'vehiculo');    
 
-export default Vehiculo;M
+export default Vehiculo;
