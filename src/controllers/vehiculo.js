@@ -1,4 +1,4 @@
-import { Vehiculo } from "../models";
+import Vehiculo from "../models/Vehiculo.js";
 
 const obtenerVehiculos = async (req, res) => {
   try {
@@ -56,4 +56,4 @@ const deleteVehiculo = async (req, res) => {
   }
 }
 
-export { obtenerVehiculos, createVehiculo, updateVehiculo, deleteVehiculo };
+export default { obtenerVehiculos, createVehiculo, updateVehiculo, deleteVehiculo };
