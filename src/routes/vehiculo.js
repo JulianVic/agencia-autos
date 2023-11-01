@@ -1,4 +1,3 @@
-
 import {Router} from "express"
 import vehiculoController from "../controllers/vehiculo.js"
 
