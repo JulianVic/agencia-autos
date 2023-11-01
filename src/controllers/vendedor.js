@@ -1,4 +1,4 @@
-import Vendedor from '../models/vendedor.js'
+import Vendedor from '../models/Vendedor.js'
 
 const getVendedores = async (req, res) => {
     try{

@@ -1,4 +1,4 @@
-import Venta from "../models/venta.js";
+import Venta from "../models/Venta.js";
 
 const getVentas = async (req, res) => {
     try{
