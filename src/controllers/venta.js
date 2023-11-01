@@ -54,7 +54,7 @@ const createVenta = async (req, res) => {
     }
 };
 
-export {
+export default {
     getVentas,
     getVenta,
     createVenta

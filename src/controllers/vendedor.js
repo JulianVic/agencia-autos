@@ -92,7 +92,7 @@ const deleteVendedor = async (req, res) => {
     }
 }
 
-export {
+export default {
     getVendedores,
     getVendedor,
     createVendedor,

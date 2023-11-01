@@ -1,4 +1,4 @@
-import Devoluciones from '../models/devoluciones';
+import Devoluciones from '../models/Devoluciones.js';
 
 const getDevoluciones = async (req, res) => {
     try{
@@ -56,7 +56,7 @@ const createDevolucion = async (req, res) => {
     }
 }
 
-export {
+export default {
     getDevoluciones,
     getDevolucion,
     createDevolucion
