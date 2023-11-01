@@ -1,19 +1,15 @@
-import mongoose, {Schema} from 'mongoose'
+import {Schema, model} from 'mongoose'
 
 const clienteSchema = new Schema({
-    nombre: {
-        type: String,
-    },
-    apellidos: {
-        type: String,
-    },
+    nombre: String,
+    apellidos: String,
     compra: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Ventas',
     }
     
 })
 
-const Cliente = mongoose.model('Cliente', clienteSchema, 'cliente')
+const Cliente = model('Cliente', clienteSchema, 'cliente')
 
 export default Cliente

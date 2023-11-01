@@ -1,24 +1,16 @@
-import mongoose, {Schema} from "mongoose";
+import {Schema, model} from "mongoose";
 
 const vehiculoSchema = new Schema({
-    modelo: {
-        type: String
-    },
-    anio: {
-        type: Number
-    },
-    color: {
-        type: String,
-    },
-    precio: {
-        type: Number
-    },
+    modelo: String,
+    anio: Number,
+    color: String,
+    precio: Number,
     estado: {
         type: String,
         enum: ['Nuevo', 'Usado'],
     }
 });
 
-const Vehiculo = mongoose.model('Vehiculo', vehiculoSchema, 'vehiculo');    
+const Vehiculo = model('Vehiculo', vehiculoSchema, 'vehiculo');    
 
 export default Vehiculo;

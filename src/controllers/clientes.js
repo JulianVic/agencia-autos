@@ -1,4 +1,4 @@
-import { Clientes } from "../models";
+import Clientes from "../models/Cliente.js";
 
 const getClientes = async (req, res) => {
   try {
@@ -65,7 +65,7 @@ const deleteCliente = async (req, res) => {
   }
 };
 
-export {
+export default {
     getClientes,
     getCliente,
     createCliente,
