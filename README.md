@@ -35,7 +35,7 @@ Puede eliminar un cliente haciendo un DELETE a la ruta `http://localhost:4000/ap
 
 ### Vendedor
 
-**Aplica exactamente la misma lógica que para Cliente, solo que ahora la ruta es: `http://localhost:4000/api/vendedores/x` significando x una subruta como lo puede ser una ID**
+**Aplica exactamente la misma lógica que para Cliente, solo que ahora la ruta principal es: `http://localhost:4000/api/vendedores`**
 
 #### Crear vendedor
 Para poder crear un vendedor tiene que hacer un POST a la ruta `http://localhost:4000/api/vendedores/` y debéra poner un JSON como body.
