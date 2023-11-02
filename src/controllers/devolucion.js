@@ -1,4 +1,6 @@
 import Devoluciones from '../models/Devoluciones.js';
+import Venta from '../models/Venta.js';
+import Cliente from '../models/Cliente.js';
 
 const getDevoluciones = async (req, res) => {
     try{
@@ -35,17 +37,44 @@ const getDevolucion = async (req, res) => {
 }
 
 const createDevolucion = async (req, res) => {
-    const { vehiculo, vendedor, cliente } = req.body
+    const { id } = req.params;
     try{
-        const devolucion = await Devoluciones.create({
-            vehiculo,
-            vendedor,
-            cliente
+        const venta = await Venta.findById(id)
+        .populate({
+            path: 'cliente',
+            select: '_id'
         })
-        return res.status(200).json({
+        .populate({
+            path: 'vendedor',
+            select: '_id'
+        })
+        .populate({
+            path: 'vehiculo',
+            select: '_id'
+        })
+
+        if(!venta) return res.status(404).json({ msg: "No se encontró la venta" })
+        
+        const devolucion = await Devoluciones.create({
+            vehiculo: venta.vehiculo._id,
+            vendedor: venta.vendedor._id,
+            cliente: venta.cliente._id
+        })
+
+        await Venta.findByIdAndDelete(id)
+        await Cliente.findByIdAndUpdate(venta.cliente._id, {
+            $pull: {
+                compras: id
+            }
+        })
+
+
+        
+        return res.status(201).json({
             msg: "Devolucion creada",
             devolucion
         })
+
     }
     catch(error){
         console.log(error)

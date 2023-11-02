@@ -5,6 +5,6 @@ const router = Router();
 
 router.get('/', devolucionController.getDevoluciones);
 router.get('/:id', devolucionController.getDevolucion);
-router.post('/', devolucionController.createDevolucion);
+router.post('/:id', devolucionController.createDevolucion);
 
 export default router;
