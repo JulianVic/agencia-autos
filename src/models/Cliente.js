@@ -1,15 +1,19 @@
-import {Schema, model} from 'mongoose'
+import { Schema, model } from "mongoose";
 
-const clienteSchema = new Schema({
+const clienteSchema = new Schema(
+  {
     nombre: String,
     apellidos: String,
-    compra: {
+    compras: [
+      {
         type: Schema.Types.ObjectId,
-        ref: 'Ventas',
-    }
-    
-})
+        ref: "Venta",
+      },
+    ],
+  },
+  { versionKey: false }
+);
 
-const Cliente = model('Cliente', clienteSchema, 'cliente')
+const Cliente = model("Cliente", clienteSchema, "cliente");
 
-export default Cliente
+export default Cliente;

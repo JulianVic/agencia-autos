@@ -1,4 +1,4 @@
-import Vendedor from '../models/vendedor.js'
+import Vendedor from '../models/Vendedor.js'
 
 const getVendedores = async (req, res) => {
     try{
@@ -20,7 +20,7 @@ const getVendedores = async (req, res) => {
 const getVendedor = async (req, res) => {
     const { id } = req.params
     try{
-        const vendedor = await Vendedor.findById(id).populate("ventas")
+        const vendedor = await Vendedor.findById(id);
         return res.status(200).json({
             msg: "Vendedor encontrado",
             vendedor
@@ -35,11 +35,11 @@ const getVendedor = async (req, res) => {
 }
 
 const createVendedor = async (req, res) => {
-    const { nombre, apellido } = req
+    const { nombre, apellidos } = req.body;
     try{
         const vendedor = await Vendedor.create({
             nombre,
-            apellido
+            apellidos
         })
         return res.status(200).json({
             msg: "Vendedor creado",
@@ -56,11 +56,11 @@ const createVendedor = async (req, res) => {
 
 const updateVendedor = async (req, res) => {
     const { id } = req.params
-    const { nombre, apellido } = req.body
+    const { nombre, apellidos } = req.body
     try{
         const vendedor = await Vendedor.findByIdAndUpdate(id, {
             nombre,
-            apellido
+            apellidos
         })
         return res.status(200).json({
             msg: "Vendedor actualizado",
@@ -78,7 +78,7 @@ const updateVendedor = async (req, res) => {
 const deleteVendedor = async (req, res) => {
     const { id } = req.params
     try{
-        const vendedor = await Vendedor.findByIdAndDelete(id)
+        const vendedor = await Vendedor.findByIdAndDelete(id);
         return res.status(200).json({
             msg: "Vendedor eliminado",
             vendedor
