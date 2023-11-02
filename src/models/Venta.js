@@ -1,20 +1,26 @@
 import { Schema, model } from "mongoose";
 
-const ventaSchema = new Schema({
+const ventaSchema = new Schema(
+  {
     vehiculo: {
-        type: Schema.Types.ObjectId,
-        ref: "Vehiculo"
+      type: Schema.Types.ObjectId,
+      ref: "Vehiculo",
     },
     vendedor: {
-        type: Schema.Types.ObjectId,
-        ref: "Vendedor"
+      type: Schema.Types.ObjectId,
+      ref: "Vendedor",
     },
     cliente: {
-        type: Schema.Types.ObjectId,
-        ref: "Cliente"
-    }
-});
-
+      type: Schema.Types.ObjectId,
+      ref: "Cliente",
+    },
+    pagado: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  { versionKey: false }
+);
 const Venta = model("Venta", ventaSchema, "venta");
 
 export default Venta;

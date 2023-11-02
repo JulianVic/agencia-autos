@@ -12,24 +12,41 @@ const getClientes = async (req, res) => {
 };
 
 const getCliente = async (req, res) => {
+  const { id } = req.params;
   try {
-    const cliente = await Clientes.findById(req.params.id);
-    res.status(200).json(cliente);
+    const cliente = await Clientes.findById(id)
+    .populate({
+      path: 'compras',
+      select: '-cliente'
+    })
+
+    if (!cliente)
+      return res.status(404).json({
+        msg: "No se encontró el cliente",
+      });
+
+
+    return res.status(200).json({
+      msg: "Cliente encontrado",
+      cliente
+    });
   } catch (error) {
     res.status(500).send({
       msg: "Ocurrio un error",
+      error: error.message,
     });
   }
 };
 
 const createCliente = async (req, res) => {
-  const { nombre, apellido } = req.body;
+  const { nombre, apellidos } = req.body;
+  
   try {
     const cliente = await Clientes.create({
       nombre,
-      apellido,
+      apellidos,
     });
-    res.status(201).json(cliente);
+    res.status(200).json(cliente);
   } catch (error) {
     res.status(500).send({
       msg: "Ocurrio un error",
@@ -39,11 +56,11 @@ const createCliente = async (req, res) => {
 
 const updateCliente = async (req, res) => {
   const { id } = req.params;
-  const { nombre, apellido } = req.body;
+  const { nombre, apellidos } = req.body;
   try {
     const cliente = await Clientes.findByIdAndUpdate(id, {
       nombre,
-      apellido,
+      apellidos,
     });
     res.status(200).json(cliente);
   } catch (error) {
