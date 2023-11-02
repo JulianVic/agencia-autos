@@ -90,3 +90,6 @@ Solo se registra un pago, una única vez a la ruta `http://localhost:4000/api/ve
 
 ### Hacer devolución
 Para hacer una devolución tiene que hacer un POST a la ruta `http://localhost:4000/api/devoluciones/:id`, siendo `:id` la ID de la venta 
+
+### Obtener devoluciones
+Para obtener las devoluciones tiene que hacer un GET a la ruta `http://localhost:4000/api/devoluciones/` y puede hacer consultas específicas a la ruta `http://localhost:4000/api/devoluciones/:id` siendo `:id` la ID de una devolución.
