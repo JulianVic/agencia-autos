@@ -19,6 +19,7 @@ Ejemplo:
 
 #### Actualizar cliente
 Para poder actualizar un cliente tiene que hacer un PUT a la ruta `http://localhost:4000/api/clientes/:id` siendo `:id` una ID de algún cliente, y los nuevos datos los mandara en el body en formato JSON.
+Ejemplo:
 ```json
 {
   "nombre": "Juan",
@@ -36,10 +37,37 @@ Puede eliminar un cliente haciendo un DELETE a la ruta `http://localhost:4000/ap
 
 **Aplica exactamente la misma lógica que para Cliente, solo que ahora la ruta es: `http://localhost:4000/api/vendedores/x` significando x una subruta como lo puede ser una ID**
 
+#### Crear vendedor
+Para poder crear un vendedor tiene que hacer un POST a la ruta `http://localhost:4000/api/vendedores/` y debéra poner un JSON como body.
+Ejemplo:
+```json
+{
+  "nombre": "Juan",
+  "apellidos": "Pérez"
+}
+```
+
+#### Actualizar vendedor
+Para poder actualizar un vendedor tiene que hacer un PUT a la ruta `http://localhost:4000/api/vendedores/:id` siendo `:id` una ID de algún vendedor, y los nuevos datos los mandara en el body en formato JSON.
+Ejemplo:
+```json
+{
+  "nombre": "Juan",
+  "apellidos": "Pérez"
+}
+```
+
+#### Obtener vendedor
+Puede obtener a todos los vendedores si hace un GET a la ruta `http://localhost:4000/api/vendedores/` y puede hacer una consulta específica y más detallada del vendedor haciendo un GET a la ruta `http://localhost:4000/api/vendedores/:id`, siendo `:id` la ID del vendedor.
+
+#### Eliminar vendedor
+Puede eliminar un vendedor haciendo un DELETE a la ruta `http://localhost:4000/api/vendedores/:id` siendo `:id` una ID de algún vendedor.
+
 ### Vehículo
 
 #### Registrar vehículo
 Puede hacerlo haciendo un POST a la ruta `http://localhost:4000/api/vehiculos/` como los siguientes datos de ejemplo:
+Ejemplo:
 ```json
 {
   "modelo": "Sedán",
@@ -55,6 +83,7 @@ Puede leer todos suus vehículos registrados haciendo un GET en la siguiente rut
 
 ### Actualizar vehículo
 Puede actualizar la información de un vehículo apartir haciendo un PUT a la siguiente ruta: `http://localhost:4000/api/vehiculos/:id` siendo `:id` la ID de un vehículo y manda la nueva información en el body en formato JSON.
+Ejemplo:
 ```json
 {
   "modelo": "Coupés",
@@ -72,6 +101,7 @@ Puede eliminar un vehículo apartir de su ID con un DELETE a `http://localhost:4
 
 ### Crear venta
 Para hacer una venta tiene que poner el ID del vehículo, del cliente y del vendedor en el body como JSON como se muestra en el ejemplo de abajo, debe hacer un POST a la siguiente ruta: `http://localhost:4000/api/ventas/`.
+Ejemplo:
 ```json
 {
   "vehiculoID": "6542810691a3a16d02700d1d",
